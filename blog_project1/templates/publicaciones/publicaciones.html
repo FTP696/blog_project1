@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+
+
+{% block contenido %}
+    
+    
+
+    <h1>publicaciones</h1>
+    {% if user.is_authenticated  %}
+        <a class="btn btn-outline-success btn-lg" href="{% url 'publicaciones:postear' %}">Postear</a>
+        
+    {% for post in posteos %}
+        <div class="card m-5">
+            <div class="card-header">
+            {{post.fecha}}
+            </div>
+            <div class="card-body">
+            <h6 class="card-title">editado: {{post.update}}</h6>
+            <h5 class="card-title">{{post.titulo}}</h5>
+            <p class="card-text">{{post.post}}</p>
+            <p class="card-text">{{post.categoria}}</p>
+            <a href="#" class="btn btn-outline-success btn-lg">Me gusta!</a>
+            <a href="{% url 'publicaciones:editar' post.id %}" class="btn btn-outline-success btn-lg">Editar</a>
+            </div>
+        </div>
+    {%endfor%}
+        
+    {% else %}
+    <a class="btn btn-outline-success btn-lg" href="{% url 'users:login' %}">Inicia Sesion para ver las publicaciones</a>
+    {% endif %}
+        
+{% endblock contenido %}
+    

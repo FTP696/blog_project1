@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block contenido %}
+
+<h2>Has tu publicacion</h2>
+<form method ="post">{% csrf_token %}
+    {{form.as_p}}
+
+    <button type = "sumbit" class="btn btn-success">Publicar</button>
+</form>
+{% endblock contenido %}
