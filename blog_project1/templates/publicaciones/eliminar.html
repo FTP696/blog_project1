@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+
+
+{% block contenido %}
+{% csrf_token %}
+<h2>De verdad queres eliminar?</h2>
+<form method ="post">
+    {% csrf_token %}
+    
+
+    <button type = "submit" class="btn btn-outline-danger ">Eliminar</button>
+    <a href="{% url 'publicaciones:publicaciones'%}" class="btn btn btn-light">Cancelar</a>
+</form>
+{% endblock contenido %}

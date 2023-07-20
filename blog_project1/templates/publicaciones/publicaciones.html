@@ -17,11 +17,13 @@
             </div>
             <div class="card-body">
             <h6 class="card-title">editado: {{post.update}}</h6>
+            <h6 class="card-title">creador: {{post.first_name}}</h6>
             <h5 class="card-title">{{post.titulo}}</h5>
             <p class="card-text">{{post.post}}</p>
             <p class="card-text">{{post.categoria}}</p>
             <a href="#" class="btn btn-outline-success btn-lg">Me gusta!</a>
             <a href="{% url 'publicaciones:editar' post.id %}" class="btn btn-outline-success btn-lg">Editar</a>
+            <a href="{% url 'publicaciones:eliminar' post.id %}" class="btn btn btn-outline-danger btn-lg">Borrar</a>
             </div>
         </div>
     {%endfor%}

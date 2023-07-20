@@ -13,7 +13,7 @@ from .models import publicaciones
 class CrearpublicacionForm(forms.ModelForm):
     class Meta:
        model = publicaciones
-       fields = ['titulo', 'post', 'categoria']
+       fields = ['titulo', 'post', 'categoria',]
        labels = {
             'titulo' : '',
             'post' : '',

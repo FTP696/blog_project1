@@ -1,4 +1,5 @@
 from django.db import models
+from users.models import usuario
 
 # Create your models here.
 #lo habiamos hecho en core al principio pero lo movimos aca para que la app publicaciones contenga la tabla
@@ -16,6 +17,7 @@ class publicaciones (models.Model):
     post = models.TextField()
     #categoria = models.ForeignKey(categoria, on_delete=models.CASCADE, related_name = 'posteos') #para que borre categorias nulas
     categoria = models.ForeignKey(categoria, on_delete=models.SET_NULL, related_name = 'posteos', null = True)
+    creador = models.ForeignKey(usuario, on_delete=models.CASCADE, related_name = 'posteos_usuario', null = True,)
     def __str__(self):
         return self.titulo
     
